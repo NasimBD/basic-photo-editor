@@ -1,38 +1,158 @@
-.App {
+body, body *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:rgb(32, 32, 32);
+}
+
+.container{
+  display: flex;
+  background-color: rgb(247, 247, 187);
+}
+
+
+button{
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-bottom: 1px solid rgb(204, 160, 160);
+  cursor: pointer;
+}
+
+#main{
+  padding: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type="range"]{
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#value-unit{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+#value-unit input{
+  padding: 0.1rem 0.3rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  color: rgb(94, 91, 91);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#value-unit input:focus{
+  outline: none;
+}
+
+/*  in order to always display arrow input number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+#value-unit span{
+  margin-left: 0.3rem;
+  font-weight: bold;
+}
+
+
+h3{
+  margin: 1.5rem;
+}
+
+#photo-wrapper{
+  height: 25rem;
+  background: url('flower.jpg') center/cover no-repeat;
+  margin-bottom: 2rem;
+}
+
+img{
+  width: 20rem;
+  border: 5px white solid;
+  box-shadow: 0 0 2px 4px rgb(197, 197, 197);
+}
+
+
+/* ----------------------------- media */
+/* ----------------------------- 1 */
+@media screen and (max-width:576px){
+  html{
+    font-size: 13px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .container{
+      flex-flow: column nowrap;
+  }
+
+
+  #option-bar{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  button{
+    margin: 0 0.3rem 0.3rem 0;
+    background-color: rgb(68, 19, 19);
+    color: rgb(255, 255, 255);
+    border-radius: 0 0 6px 0;
+  }
+
+  button.active{
+    background-color: maroon;
+  }
+  
+  #value-unit input{
+    width: 4rem;
+  }
+}
+
+/* ----------------------------- 2 */
+@media screen and (min-width:576px){
+  html{
+    font-size: 16px;
+  }
+
+  .container{
+      padding: 3rem 1.5rem;
+      flex-flow: row-reverse nowrap;
+      justify-content: space-between;
+
+  }
+  
+  #main{
+    flex: 1 1 80%;
+    margin-right: 2rem;
+  }
+
+  #option-bar{
+    flex: 1 1 20%;
+    max-width: 120px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 2rem;
+  }
+
+  button{
+    padding: 0.8rem;
+    background-color: transparent;
+    color: rgb(151, 78, 78);
+  }
+
+  button:hover{
+    background-color: yellow;
+  }
+
+  button.active{
+    background-color: rgb(248, 248, 129);
+  }
+  
+  #value-unit input{
+    width: 3rem;
   }
 }
